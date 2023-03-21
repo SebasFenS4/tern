@@ -126,7 +126,7 @@ s_compare.factor <- function(x,
 
   y$pval <- if (!.in_ref_col && length(x) > 0 && length(.ref_group) > 0) {
     tab <- rbind(table(x), table(.ref_group))
-    res <- suppressWarnings(stats::chisq.test(tab))
+    res <- suppressWarnings(stats::chisq.test(tab, correct = FALSE))
     res$p.value
   } else {
     character()
